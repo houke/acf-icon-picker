@@ -58,17 +58,17 @@ class acf_field_icon_selector extends acf_field {
 		$input_icon = $field['value'] != "" ? $field['value'] : $field['initial_value'];
 		$svg = $this->path . $input_icon . '.svg';
 		?>
-			<div class="acf-icon-selector">
-				<div class="acf-icon-selector__img">
+			<div class="iv-icon-selector">
+				<div class="iv-icon-selector__img">
 					<?php
 						if ( file_exists( $svg ) ) {
 							$svg = $this->url . $input_icon . '.svg';
-							echo '<div class="acf-icon-selector__svg">';
+							echo '<div class="iv-icon-selector__svg">';
 						   	echo '<img src="'.$svg.'" alt=""/>';
 						    echo '</div>';
 						}else{
-							echo '<div class="acf-icon-selector__svg">';
-							echo '<span class="acf-icon-selector__svg--span">&plus;</span>';
+							echo '<div class="iv-icon-selector__svg">';
+							echo '<span class="iv-icon-selector__svg--span">&plus;</span>';
 						    echo '</div>';
 						}
 					?>
@@ -86,7 +86,7 @@ class acf_field_icon_selector extends acf_field {
 		wp_register_script( 'acf-input-icon_selector', "{$url}assets/js/input.js", array('acf-input'), $version );
 		wp_enqueue_script('acf-input-icon_selector');
 
-		wp_localize_script( 'acf-input-icon_selector', 'acf', array(
+		wp_localize_script( 'acf-input-icon_selector', 'iv', array(
 			'path' => $this->url,
 			'svgs' => $this->svgs,
 			'no_icons_msg' => sprintf( esc_html__('To add icons, add your svg files in the /%s folder in your theme.', 'acf-icon_selector'), $this->path_suffix)

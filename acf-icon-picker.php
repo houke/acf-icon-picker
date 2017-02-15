@@ -1,22 +1,22 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields: Icon Selector
-Plugin URI: https://github.com/houke/acf-icon-selector
+Plugin Name: Advanced Custom Fields: Icon Picker
+Plugin URI: https://github.com/houke/acf-icon-picker
 Description: Allows you to pick an icon from a predefined list
 Version: 1.0.0
 Author: Houke de Kwant
 Author URI: ttps://github.com/houke/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-GitHub Plugin URI: https://github.com/houke/acf-icon-selector
+GitHub Plugin URI: https://github.com/houke/acf-icon-picker
 GitHub Branch: master
 */
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-if( !class_exists('acf_plugin_icon_selector') ) :
+if( !class_exists('acf_plugin_icon_picker') ) :
 
-class acf_plugin_icon_selector {
+class acf_plugin_icon_picker {
 
 	function __construct() {
 
@@ -31,11 +31,11 @@ class acf_plugin_icon_selector {
 	}
 
 	function include_field_types( $version = false ) {
-		include_once('fields/acf-icon_selector-v5.php');
+		include_once('fields/acf-icon-picker-v5.php');
 	}
 
 }
 
-new acf_plugin_icon_selector();
+new acf_plugin_icon_picker();
 
 endif;

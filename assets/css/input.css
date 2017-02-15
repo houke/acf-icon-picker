@@ -1,16 +1,16 @@
-.acf-icon-selector__svg,
-.acf-icon-selector__popup-svg{
+.iv-icon-selector__svg,
+.iv-icon-selector__popup-svg{
 	width: 50px;
 	height: 50px;
 	position: relative;
 }
 
-.acf-icon-selector__popup-svg{
+.iv-icon-selector__popup-svg{
 	margin: 0 auto;
 }
 
-.acf-icon-selector__popup-svg img,
-.acf-icon-selector__svg img{
+.iv-icon-selector__popup-svg img,
+.iv-icon-selector__svg img{
 	max-width: 50px;
 	max-height: 50px;
 	display: block;
@@ -23,12 +23,12 @@
 	transform: translate(-50%, -50%);
 }
 
-.acf-icon-selector__img{
+.iv-icon-selector__img{
 	width: 60px;
 	cursor: pointer;
 }
 
-.acf-icon-selector__popup{
+.iv-icon-selector__popup{
 	position: fixed;
 	z-index: 999999;
 	background-color: #fff;
@@ -42,32 +42,32 @@
 	margin-top: -200px;
 	overflow: auto;
 }
-.acf-icon-selector__popup ul{
+.iv-icon-selector__popup ul{
 	margin: 0;
 }
-.acf-icon-selector__popup ul:before,
-.acf-icon-selector__popup ul:after{
+.iv-icon-selector__popup ul:before,
+.iv-icon-selector__popup ul:after{
 	content: "";
 	display: table;
 	width: 100%;
 }
 
-.acf-icon-selector__popup ul li{
+.iv-icon-selector__popup ul li{
 	width: 20%;
 	float: left;
 	padding: 10px;
 	cursor: pointer;
 }
 
-.acf-icon-selector__popup ul li:nth-child(4n+1){
+.iv-icon-selector__popup ul li:nth-child(4n+1){
 	clear: left;
 }
 
-.acf-icon-selector__popup ul li:hover{
+.iv-icon-selector__popup ul li:hover{
 	background-color: #eee;
 }
 
-.acf-icon-selector__popup ul li span{
+.iv-icon-selector__popup ul li span{
 	text-transform: capitalize;
 	text-align: center;
 	font-size: 12px;
@@ -76,7 +76,7 @@
 	margin: 10px auto 0 auto;
 }
 
-.acf-icon-selector__popup-holder{
+.iv-icon-selector__popup-holder{
 	content: "";
 	position: fixed;
 	left: 0;
@@ -86,7 +86,7 @@
 	background-color: rgba(0,0,0,0.8);
 	z-index: 999998;
 }
-.acf-icon-selector__svg--span{
+.iv-icon-selector__svg--span{
 	width: 50px;
 	height: 50px;
 	border-radius: 50px;
@@ -100,6 +100,6 @@
 	display: inline-block;
 }
 
-.acf-icon-selector__svg--span:hover{
+.iv-icon-selector__svg--span:hover{
 	background-color: #ddd;
 }
