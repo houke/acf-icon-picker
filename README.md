@@ -15,7 +15,7 @@ This ACF field type is compatible with:
 
 ## Screenshots ##
 
-![Icon Picker](https://raw.githubusercontent.com/houke/acf-icon-picker/master/screenshots/example.png)
+![Icon Picker](https://raw.githubusercontent.com/houke/acf-icon-selector/master/screenshots/example.png)
 
 
 ## Installation ##
