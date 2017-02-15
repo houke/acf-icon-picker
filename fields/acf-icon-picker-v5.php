@@ -2,9 +2,9 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-if( !class_exists('acf_plugin_icon_picker') ) :
+if( !class_exists('acf_field_icon_picker') ) :
 
-class acf_plugin_icon_picker extends acf_field {
+class acf_field_icon_picker extends acf_field {
 
 	function __construct( $settings ) {
 
@@ -97,7 +97,7 @@ class acf_plugin_icon_picker extends acf_field {
 	}
 }
 
-new acf_plugin_icon_picker( $this->settings );
+new acf_field_icon_picker( $this->settings );
 
 endif;
 
