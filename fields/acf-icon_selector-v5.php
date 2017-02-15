@@ -24,7 +24,7 @@ class acf_field_icon_selector extends acf_field {
 
 		$this->settings = $settings;
 
-		$this->path_suffix = 'img/acf/';
+		$this->path_suffix = 'assets/img/acf/';
 
 		$this->path = $this->settings['path'] . $this->path_suffix;
 
