@@ -1,3 +1,8 @@
+.acf-icon-picker__popup *{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
 .acf-icon-picker__svg,
 .acf-icon-picker__popup-svg{
 	width: 50px;
@@ -53,7 +58,7 @@
 }
 
 .acf-icon-picker__popup ul li{
-	width: 20%;
+	width: 25%;
 	float: left;
 	padding: 10px;
 	cursor: pointer;
@@ -93,7 +98,6 @@
 	text-align: center;
 	line-height: 50px;
 	background-color: #eee;
-	border: 1px solid #ddd;
 	color: #aaa;
 	font-size: 20px;
 	font-weight: 300;
@@ -102,4 +106,19 @@
 
 .acf-icon-picker__svg--span:hover{
 	background-color: #ddd;
+}
+
+.acf-icon-picker__remove {
+	display: none;
+	background-color: #f4f4f4;
+	padding: 2px;
+	border: 1px solid #E1E1E1;
+	font-size: 11px;
+	cursor: pointer;
+	margin-top: 5px;
+	line-height: 1;
+}
+
+.acf-icon-picker__remove--active {
+	display: inline-block;
 }
