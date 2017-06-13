@@ -74,6 +74,11 @@ class acf_field_icon_picker extends acf_field {
 					?>
 					<input type="hidden" readonly name="<?php echo esc_attr($field['name']) ?>" value="<?php echo esc_attr($input_icon) ?>"/>
 				</div>
+				<?php if ( $field['required' ] == false ) { ?>
+					<span class="acf-icon-picker__remove">
+						Remove
+					</span>
+				<?php } ?>
 			</div>
 		<?php
 	}

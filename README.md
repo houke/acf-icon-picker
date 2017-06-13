@@ -26,4 +26,5 @@ This ACF field type is compatible with:
 
 ## Changelog ##
 
+1.1.0 - Add button to remove the selected icon when the field is not required
 1.0.0 - First release
