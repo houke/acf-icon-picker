@@ -25,6 +25,6 @@ This ACF field type is compatible with:
 3. Create a new field via ACF and select the Icon Selector type
 
 ## Changelog ##
-
+1.2.0 - Adding search filter input to filter through icons by  name
 1.1.0 - Add button to remove the selected icon when the field is not required
 1.0.0 - First release
