@@ -1,6 +1,5 @@
 .acf-icon-picker__popup *{
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 .acf-icon-picker__svg,
@@ -23,7 +22,6 @@
 	left: 50%;
 	top: 50%;
 	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
@@ -37,15 +35,29 @@
 	position: fixed;
 	z-index: 999999;
 	background-color: #fff;
-	box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-	padding: 10px;
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+	        box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+	padding: 20px;
 	width: 500px;
 	height: 400px;
 	top: 50%;
 	left: 50%;
-	margin-left: -250px;
-	margin-top: -200px;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	        transform: translate3d(-50%,-50%,0);
 	overflow: auto;
+}
+
+.acf-icon-picker__popup__title {
+	float: left;
+	 margin: 0 0 10px 0;
+}
+
+.acf-icon-picker__popup__close {
+	display: inline-block;
+    margin: 0 0 10px 0;
+    text-align: right;
+    float: right;
+	float: right;
 }
 .acf-icon-picker__popup ul{
 	margin: 0;
@@ -121,4 +133,10 @@
 
 .acf-icon-picker__remove--active {
 	display: inline-block;
+}
+
+.acf-icon-picker__filter {
+	padding: 12px;
+	border-radius: 4px;
+	width: 100%;
 }

@@ -19,14 +19,6 @@
       .addClass("acf-icon-picker__remove--active");
   });
   
- jQuery(".acf-icon-picker__popup-holder").on("click", function(e) {
-    console.log('clicked');
-    e.preventDefault();
-    e.stopPropagation();
-    active_item = "";
-    jQuery(this).remove();
-  });
-
   function initialize_field($el) {
     $el.find(".acf-icon-picker__img").on("click", function(e) {
       e.preventDefault();
@@ -51,6 +43,8 @@
       jQuery("body").append(
         `<div class="acf-icon-picker__popup-holder">
         <div class="acf-icon-picker__popup">
+        <a class="acf-icon-picker__popup__close" href="javascript:">close</a>
+        <h4 class="acf-icon-picker__popup__title">ACF Icon Picker - Choose icon</h4>
         <input class="acf-icon-picker__filter" type="text" id="filterIcons" placeholder="Start typing to filter icons" />
           ${list}
         </div>
@@ -88,11 +82,13 @@
 
       iconsFilter.addEventListener('keyup', displayResults);
 
-      
+      // Closing
+      jQuery(".acf-icon-picker__popup__close").on("click", function(e) {
+        e.stopPropagation();
+        jQuery(".acf-icon-picker__popup-holder").remove();
+      });
+
     });
-
-
-
 
     // show the remove button if there is an icon selected
     if ($el.find("input").val().length != 0) {
