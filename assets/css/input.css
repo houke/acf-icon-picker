@@ -60,6 +60,7 @@
 	float: right;
 }
 .acf-icon-picker__popup ul{
+  position: relative;
 	margin: 0;
 }
 .acf-icon-picker__popup ul:before,
@@ -70,6 +71,7 @@
 }
 
 .acf-icon-picker__popup ul li{
+  position: absolute;
 	width: 25%;
 	float: left;
 	padding: 10px;
