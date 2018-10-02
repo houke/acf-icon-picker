@@ -1,8 +1,11 @@
 (function($) {
   var active_item;
+  var item_width = 125;
+  var item_height = 116 + 6;
+  var recycled_items = [];
 
   jQuery(document).on('click', 'li[data-svg]', function() {
-    var val = jQuery(this).data('svg');
+    var val = jQuery(this).attr('data-svg');
     active_item.find('input').val(val);
     active_item.find('.acf-icon-picker__svg').html(
       '<img src="' +
@@ -11,6 +14,7 @@
           .attr('src') +
         '" alt=""/>'
     );
+    jQuery('.acf-icon-picker__popup-holder').trigger('close');
     jQuery('.acf-icon-picker__popup-holder').remove();
 
     active_item
@@ -22,23 +26,13 @@
   function initialize_field($el) {
     $el.find('.acf-icon-picker__img').on('click', function(e) {
       e.preventDefault();
+      var is_open = true;
       active_item = $(this);
+
       if (iv.svgs.length == 0) {
         var list = '<p>' + iv.no_icons_msg + '</p>';
       } else {
         var list = `<ul id="icons-list">`;
-        jQuery(iv.svgs).each(function() {
-          var svg = jQuery(this)[0];
-          list += `<li data-svg="${svg['name']}">
-            <div class="acf-icon-picker__popup-svg">
-              <img src="${iv.path}${svg['icon']}" alt=""/>
-            </div>
-            <span class="icons-list__name">${svg['name'].replace(
-              /[-_]/g,
-              ' '
-            )}</span>
-          </li>`;
-        });
         list += `</ul>`;
       }
 
@@ -53,36 +47,118 @@
       </div>`
       );
 
-      const iconsFilter = document.querySelector('#filterIcons');
-      const iconsList = document.querySelector('#icons-list');
-      const allIcons = Array.from(
-        iconsList.querySelectorAll('.icons-list__name')
-      );
+      jQuery('.acf-icon-picker__popup-holder').on('close', function() {
+        is_open = false;
+      });
 
-      function filterIcons(wordToMatch, allIcons) {
+      var $list = $('#icons-list');
+      var margin = 200; // number of px to show above and below.
+      var columns = 4;
+      var svgs = iv.svgs;
+
+      function setListHeight() {
+        var total_lines = Math.ceil(svgs.length / columns);
+        $list.height(total_lines * item_height);
+      }
+
+      function removeAllItems() {
+        $('[data-acf-icon-index]').each(function(i, el) {
+          var $el = $(el);
+          recycled_items.push($el);
+          $el.remove();
+        });
+      }
+
+      function render() {
+        if (!is_open) return;
+
+        var scroll_top = $('.acf-icon-picker__popup').scrollTop();
+        var scroll_min = scroll_top - item_height - margin;
+        var scroll_max = scroll_top + $('.acf-icon-picker__popup').height() + margin;
+        // Get the index of the first and last element from array we will show.
+        var index_min = Math.ceil(scroll_min / item_height) * columns;
+        var index_max = Math.ceil(scroll_max / item_height) * columns;
+
+        // remove unneeded items and add them to recycled items.
+        $('[data-acf-icon-index]').each(function(i, el) {
+          var $el = $(el);
+          var index = $el.attr('data-acf-icon-index');
+          var name = $el.attr('data-svg');
+          // Check if we have the element in the resulting array.
+          var elementExist = function() {
+            return svgs.find(function (svg) {
+              return svg.name === name;
+            });
+          }
+
+          if (index < index_min || index > index_max || !elementExist()) {
+            recycled_items.push($el);
+            $el.remove();
+          }
+        });
+
+        for (var i = index_min; i < index_max; i++) {
+          if (i < 0 || i >= svgs.length) continue;
+          var svg = svgs[i];
+          // Calculate the position of the item.
+          var y = Math.floor(i / columns) * item_height;
+          var x = i % columns * item_width;
+
+          // If we already have the element visible we can continue
+          var $el = $(`[data-acf-icon-index="${i}"][data-svg="${svg.name}"]`);
+          // If item already exist we can skip.
+          if ($el.length) continue;
+
+          if (recycled_items.length) {
+            // If there are recycled items reuse one.
+            $el = recycled_items.pop();
+          }
+          else {
+            // Or create a new element.
+            $el = $(`<li>
+              <div class="acf-icon-picker__popup-svg">
+                <img src="" alt=""/>
+              </div>
+              <span class="icons-list__name"></span>
+            </li>`);
+          }
+
+          // We use attr instead of data since we want to use css selector.
+          $el.attr({
+            'data-svg': svg.name,
+            'data-acf-icon-index': i
+          }).css({
+            transform: `translate(${x}px, ${y}px)`
+          });
+          $el.find('.icons-list__name').text(svg['name'].replace(
+            /[-_]/g,
+            ' '
+          ));
+          $el.find('img').attr('src', `${iv.path}${svg['icon']}`);
+          $list.append($el);
+        }
+
+        requestAnimationFrame(render);
+      }
+      if (svgs.length) {
+        setListHeight();
+        render();
+      }
+
+      const iconsFilter = document.querySelector('#filterIcons');
+
+      function filterIcons(wordToMatch) {
         return iv.svgs.filter(icon => {
-          icon.name = icon.name.replace(/[-_]/g, ' ');
+          var name = icon.name.replace(/[-_]/g, ' ');
           const regex = new RegExp(wordToMatch, 'gi');
-          return icon.name.match(regex);
+          return name.match(regex);
         });
       }
 
       function displayResults() {
-        const resultsArray = filterIcons(this.value, allIcons);
-        const html = resultsArray
-          .map(svg => {
-            return `<li data-svg="${svg['name']}">
-            <div class="acf-icon-picker__popup-svg">
-              <img src="${iv.path}${svg['icon']}" alt=""/>
-            </div>
-            <span class="icons-list__name">${svg['name'].replace(
-              /[-_]/g,
-              ' '
-            )}</span>
-          </li>`;
-          })
-          .join('');
-        iconsList.innerHTML = html;
+        svgs = filterIcons($(this).val());
+        removeAllItems();
+        setListHeight();
       }
 
       iconsFilter.focus();
@@ -92,6 +168,7 @@
       // Closing
       jQuery('.acf-icon-picker__popup__close').on('click', function(e) {
         e.stopPropagation();
+        is_open = false;
         jQuery('.acf-icon-picker__popup-holder').remove();
       });
     });
