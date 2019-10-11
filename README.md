@@ -52,8 +52,8 @@ function acf_icon_url( $path_suffix ) {
 
 ## Changelog
 
-* 1.7.0 - 2 new filters for more control over icon path. Thanks to ![benjibee](https://github.com/houke/acf-icon-picker/pull/11)
-* 1.6.0 - Performance fix with lots of icons. Thanks to ![idflood](https://github.com/houke/acf-icon-picker/pull/9)
+* 1.7.0 - 2 new filters for more control over icon path. Thanks to [benjibee](https://github.com/houke/acf-icon-picker/pull/11)
+* 1.6.0 - Performance fix with lots of icons. Thanks to [idflood](https://github.com/houke/acf-icon-picker/pull/9)
 * 1.5.0 - Fix issue where searching for icons would break preview if icon name has space
 * 1.4.0 - Add filter to change folder where svg icons are stored
 * 1.3.0 - Adding close option on modal
