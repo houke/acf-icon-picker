@@ -4,9 +4,14 @@ if( ! defined( 'ABSPATH' ) ) exit;
 
 if( !class_exists('acf_field_icon_picker') ) :
 
+
 class acf_field_icon_picker extends acf_field {
 
-	function __construct( $settings ) {
+    function initialize() {
+
+        $plugin = new acf_plugin_icon_picker();
+
+        $this->settings = $plugin->settings;
 
 		$this->name = 'icon-picker';
 
@@ -21,8 +26,6 @@ class acf_field_icon_picker extends acf_field {
 		$this->l10n = array(
 			'error'	=> __('Error!', 'acf-icon-picker'),
 		);
-
-		$this->settings = $settings;
 
 		$this->path_suffix = apply_filters( 'acf_icon_path_suffix', 'assets/img/acf/' );
 
@@ -50,8 +53,6 @@ class acf_field_icon_picker extends acf_field {
 				array_push($this->svgs, $icon);
 			}
 		}
-
-    	parent::__construct();
 	}
 
 	function render_field( $field ) {
@@ -101,7 +102,8 @@ class acf_field_icon_picker extends acf_field {
 		wp_enqueue_style('acf-input-icon-picker');
 	}
 }
-new acf_field_icon_picker( $this->settings );
+
+acf_register_field_type('acf_field_icon_picker');
 
 endif;
 
