@@ -16,7 +16,8 @@
     );
     jQuery('.acf-icon-picker__popup-holder').trigger('close');
     jQuery('.acf-icon-picker__popup-holder').remove();
-
+    jQuery('.acf-icon-picker__img input').trigger('change');
+    
     active_item
       .parents('.acf-icon-picker')
       .find('.acf-icon-picker__remove')
