@@ -77,6 +77,7 @@ add_filter('acf_icon_url',
 
 ## Changelog
 
+* 1.8.0 - Fix issue with Gutenberg not saving icon. Thanks to [tlewap](https://github.com/houke/acf-icon-picker/pull/17)
 * 1.7.0 - 2 new filters for more control over icon path. Thanks to [benjibee](https://github.com/houke/acf-icon-picker/pull/11)
 * 1.6.0 - Performance fix with lots of icons. Thanks to [idflood](https://github.com/houke/acf-icon-picker/pull/9)
 * 1.5.0 - Fix issue where searching for icons would break preview if icon name has space
