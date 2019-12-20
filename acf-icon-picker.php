@@ -3,7 +3,7 @@
 Plugin Name: Advanced Custom Fields: Icon Picker
 Plugin URI: https://github.com/houke/acf-icon-picker
 Description: Allows you to pick an icon from a predefined list
-Version: 1.7.0
+Version: 1.8.0
 Author: Houke de Kwant
 Author URI: ttps://github.com/houke/
 License: GPLv2 or later
@@ -21,7 +21,7 @@ class acf_plugin_icon_picker {
 	function __construct() {
 
 		$this->settings = array(
-			'version'	=> '1.7.0',
+			'version'	=> '1.8.0',
 			'url'		=> plugin_dir_url( __FILE__ ),
 			'path'		=> plugin_dir_path( __FILE__ )
 		);
