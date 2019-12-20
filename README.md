@@ -20,8 +20,8 @@ This ACF field type is compatible with:
 ## Installation
 
 ### via Composer
-1. Add a line to your repositories array: { "type": "git", "url": "https://github.com/houke/acf-icon-picker" }
-2. Add a line to your require block: "houke/acf-icon-picker": "dev-master"
+1. Add a line to your repositories array: `{ "type": "git", "url": "https://github.com/houke/acf-icon-picker" }`
+2. Add a line to your require block: `"houke/acf-icon-picker": "dev-master"`
 3. Run: composer update
 
 ### Manually
