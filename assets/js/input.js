@@ -189,6 +189,8 @@
         .find('.acf-icon-picker__svg')
         .html('<span class="acf-icon-picker__svg--span">+</span>');
 
+      jQuery('.acf-icon-picker__img input').trigger('change');
+
       parent
         .find('.acf-icon-picker__remove')
         .removeClass('acf-icon-picker__remove--active');
