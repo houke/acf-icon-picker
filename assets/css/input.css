@@ -76,6 +76,7 @@
 	float: left;
 	padding: 10px;
 	cursor: pointer;
+        background: #8A787B;
 }
 
 .acf-icon-picker__popup ul li:nth-child(4n+1){
@@ -83,14 +84,14 @@
 }
 
 .acf-icon-picker__popup ul li:hover{
-	background-color: #eee;
+	background-color: #AE636F;
 }
 
 .acf-icon-picker__popup ul li span{
 	text-transform: capitalize;
 	text-align: center;
 	font-size: 12px;
-	color: #222;
+	color: #fff;
 	display: block;
 	margin: 10px auto 0 auto;
 }
