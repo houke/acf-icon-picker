@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields: Icon Picker
+Plugin Name: Advanced Custom Fields: Icon Picker (AJReading fork)
 Plugin URI: https://github.com/ajreading/acf-icon-picker
 Description: Allows you to pick an icon from a predefined list
 Version: 1.10.0
 Author: Houke de Kwant
-Author URI: ttps://github.com/houke/
+Author URI: https://github.com/houke/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 GitHub Plugin URI: https://github.com/houke/acf-icon-picker
