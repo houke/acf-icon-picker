@@ -17,7 +17,7 @@
     jQuery('.acf-icon-picker__popup-holder').trigger('close');
     jQuery('.acf-icon-picker__popup-holder').remove();
     jQuery('.acf-icon-picker__img input').trigger('change');
-    
+
     active_item
       .parents('.acf-icon-picker')
       .find('.acf-icon-picker__remove')
@@ -33,19 +33,19 @@
       if (iv.svgs.length == 0) {
         var list = '<p>' + iv.no_icons_msg + '</p>';
       } else {
-        var list = `<ul id="icons-list">`;
-        list += `</ul>`;
+        var list = '<ul id="icons-list">';
+        list += '</ul>';
       }
 
       jQuery('body').append(
-        `<div class="acf-icon-picker__popup-holder">
-        <div class="acf-icon-picker__popup">
-        <a class="acf-icon-picker__popup__close" href="javascript:">close</a>
-        <h4 class="acf-icon-picker__popup__title">ACF Icon Picker - Choose icon</h4>
-        <input class="acf-icon-picker__filter" type="text" id="filterIcons" placeholder="Start typing to filter icons" />
-          ${list}
-        </div>
-      </div>`
+        '<div class="acf-icon-picker__popup-holder">' +
+        '<div class="acf-icon-picker__popup">' +
+        '<a class="acf-icon-picker__popup__close" href="javascript:">close</a>' +
+        '<h4 class="acf-icon-picker__popup__title">ACF Icon Picker - Choose icon</h4>' +
+        '<input class="acf-icon-picker__filter" type="text" id="filterIcons" placeholder="Start typing to filter icons" />' +
+        list +
+        '</div>' +
+        '</div>'
       );
 
       jQuery('.acf-icon-picker__popup-holder').on('close', function() {
@@ -106,7 +106,7 @@
           var x = i % columns * item_width;
 
           // If we already have the element visible we can continue
-          var $el = $(`[data-acf-icon-index="${i}"][data-svg="${svg.name}"]`);
+          var $el = $('[data-acf-icon-index="' + i + '"][data-svg="' + svg.name + '"]');
           // If item already exist we can skip.
           if ($el.length) continue;
 
@@ -116,12 +116,14 @@
           }
           else {
             // Or create a new element.
-            $el = $(`<li>
-              <div class="acf-icon-picker__popup-svg">
-                <img src="" alt=""/>
-              </div>
-              <span class="icons-list__name"></span>
-            </li>`);
+            $el = $(
+              '<li>' +
+                '<div class="acf-icon-picker__popup-svg">' +
+                  '<img src="" alt=""/>' +
+                '</div>' +
+                '<span class="icons-list__name"></span>' +
+              '</li>'
+            );
           }
 
           // We use attr instead of data since we want to use css selector.
@@ -129,13 +131,13 @@
             'data-svg': svg.name,
             'data-acf-icon-index': i
           }).css({
-            transform: `translate(${x}px, ${y}px)`
+            transform: 'translate(' + x + 'px, ' + y + 'px)'
           });
           $el.find('.icons-list__name').text(svg['name'].replace(
             /[-_]/g,
             ' '
           ));
-          $el.find('img').attr('src', `${iv.path}${svg['icon']}`);
+          $el.find('img').attr('src', iv.path + svg['icon']);
           $list.append($el);
         }
 
@@ -149,7 +151,7 @@
       const iconsFilter = document.querySelector('#filterIcons');
 
       function filterIcons(wordToMatch) {
-        return iv.svgs.filter(icon => {
+        return iv.svgs.filter(function (icon) {
           var name = icon.name.replace(/[-_]/g, ' ');
           const regex = new RegExp(wordToMatch, 'gi');
           return name.match(regex);
@@ -189,9 +191,9 @@
         .find('.acf-icon-picker__svg')
         .html('<span class="acf-icon-picker__svg--span">+</span>');
 
-      jQuery('.acf-icon-picker__img input').trigger('change');
+        jQuery('.acf-icon-picker__img input').trigger('change');
 
-      parent
+        parent
         .find('.acf-icon-picker__remove')
         .removeClass('acf-icon-picker__remove--active');
     });
