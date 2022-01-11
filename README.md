@@ -4,6 +4,10 @@ Allows you to create an 'icon-picker' acf-field.
 
 ---
 
+## Please note
+
+I am no longer developing this plugin myself, but will still be accepting PRs.
+
 ## Description
 
 Add the svg icons you want to be available in your theme to an acf folder inside an img folder in your theme. The field returns the name of the svg.
