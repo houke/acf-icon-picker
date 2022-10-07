@@ -17,7 +17,7 @@
     jQuery('.acf-icon-picker__popup-holder').trigger('close');
     jQuery('.acf-icon-picker__popup-holder').remove();
     jQuery('.acf-icon-picker__img input').trigger('change');
-    
+
     active_item
       .parents('.acf-icon-picker')
       .find('.acf-icon-picker__remove')
@@ -175,7 +175,8 @@
     });
 
     // show the remove button if there is an icon selected
-    if ($el.find('input').val().length != 0) {
+    const $input = $el.find('input')
+    if ($input.length && $input.val().length != 0) {
       $el
         .find('.acf-icon-picker__remove')
         .addClass('acf-icon-picker__remove--active');
