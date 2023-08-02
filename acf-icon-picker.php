@@ -18,6 +18,11 @@ if( !class_exists('acf_plugin_icon_picker') ) :
 
 class acf_plugin_icon_picker {
 
+  /**
+   * An array of plugin settings
+   *
+   * @var array
+   */
   public $settings = array();
 
 	function __construct() {
