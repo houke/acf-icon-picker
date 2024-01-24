@@ -5,7 +5,7 @@ Plugin URI: https://github.com/houke/acf-icon-picker
 Description: Allows you to pick an icon from a predefined list
 Version: 1.9.1
 Author: Houke de Kwant
-Author URI: ttps://github.com/houke/
+Author URI: https://github.com/houke/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 GitHub Plugin URI: https://github.com/houke/acf-icon-picker
@@ -18,6 +18,8 @@ if( !class_exists('acf_plugin_icon_picker') ) :
 
 class acf_plugin_icon_picker {
 
+	public $settings = array();
+	
 	function __construct() {
 
 		$this->settings = array(
