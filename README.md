@@ -16,8 +16,8 @@ Add the svg icons you want to be available in your theme to an acf folder inside
 
 This ACF field type is compatible with:
 
-[x] ACF 6
-[x] ACF 5
+- [x] ACF 6
+- [x] ACF 5
 
 ## Screenshots
 
@@ -28,7 +28,7 @@ This ACF field type is compatible with:
 ### via Composer
 1. Add a line to your repositories array: `{ "type": "git", "url": "https://github.com/houke/acf-icon-picker" }`
 2. Add a line to your require block: `"houke/acf-icon-picker": "dev-master"`
-3. Run: composer update
+3. Run: `composer update`
 
 ### Manually
 1. Copy the `acf-icon-picker` folder into your `wp-content/plugins` folder
