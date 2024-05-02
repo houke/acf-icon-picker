@@ -42,9 +42,9 @@ class acf_field_icon_picker extends acf_field {
 		$files = array_diff(scandir($this->path), array('.', '..'));
 		foreach ($files as $file) {
 			if( pathinfo($file, PATHINFO_EXTENSION) == 'svg' ){
-				$exploded = explode('.', $file);
+				$filename = pathinfo($file, PATHINFO_FILENAME);
 				$icon = array(
-					'name' => $exploded[0],
+					'name' => $filename,
 					'icon' => $file
 				);
 				array_push($this->svgs, $icon);
