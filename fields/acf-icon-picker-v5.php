@@ -6,6 +6,42 @@ if( !class_exists('acf_field_icon_picker') ) :
 
 class acf_field_icon_picker extends acf_field {
 
+	/**
+	 * Stores the settings for the field
+	 *
+	 * @var array
+	 */
+	private array $settings = array();
+
+	/**
+	 * Stores the path suffix to the icons
+	 *
+	 * @var string
+	 */
+	private string $path_suffix;
+
+	/**
+	 * Stores the path to the icons
+	 *
+	 * @var string
+	 */
+	private string $path;
+
+	/**
+	 * Stores the url to the icons
+	 *
+	 * @var string
+	 */
+	private string $url;
+
+	/**
+	 * Stores the icons
+	 *
+	 * @var array
+	 */
+	private array $svgs = array();
+
+
 	function __construct( $settings ) {
 
 		$this->name = 'icon-picker';
@@ -36,8 +72,6 @@ class acf_field_icon_picker extends acf_field {
 			$this->path = $priority_dir_lookup;
 			$this->url = get_stylesheet_directory_uri() . '/' . $this->path_suffix;
 		}
-
-		$this->svgs = array();
 
 		$files = array_diff(scandir($this->path), array('.', '..'));
 		foreach ($files as $file) {
