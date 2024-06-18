@@ -6,7 +6,7 @@ Allows you to create an 'icon-picker' acf-field.
 
 ## Please note
 
-I am no longer developing this plugin myself, but will still be accepting PRs.
+I am no longer developing this plugin myself, please use https://github.com/smithfield-studio/acf-svg-icon-picker instead.
 
 ## Description
 
